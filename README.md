@@ -35,10 +35,12 @@ TODO
 ## 3. Model Performance
 ### (1) Model 1
 Dataset I: after training 10 epochs, training loss = 0.011862, valid loss = 0.002952, testing loss = 0.011870 <br />
-Dataset II: after training 20 epochs, training loss = xxx, valid loss = xxx, testing loss = xxx <br />
+Dataset II: after training 20 epochs, training loss = 0.046850, valid loss = 0.005557, testing loss = 0.046179 <br />
 ### (2) Model 2
 Dataset I: after training 10 epochs, training loss = 0.009652, valid loss = 0.002408, testing loss = 0.009630 <br />
-Dataset II: after training 20 epochs, training loss = xxx, valid loss = xxx, testing loss = xxx <br />
-### (3) Model 2
+Dataset II: after training 20 epochs, training loss = 0.xx, valid loss = 0.xx, testing loss = 0.xx <br />
+### (3) Model 3
+TODO
 
 ## 4. Discussion
+(1) Model 1 - AEs using feedfoward neural networks for image reconstruction, performs okay on the simple Dataset I for reconstruction while pretty bad on the more complicated DatasetII
