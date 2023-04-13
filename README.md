@@ -14,6 +14,7 @@ Latent space dimension TODO = 64 (Dataset I) or XXX (Dataset II&III) <br />
 Loss function: MSE Loss
 Optimization algorithm: Adam, with lr=1e-3
 ### (2) Model 2 - AEs using convolutional neural networks for image denoising
+    For Dataset I:
     Autoencoder_Denoise(
     (encoder): Sequential(
       (0): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
@@ -29,6 +30,22 @@ Optimization algorithm: Adam, with lr=1e-3
       (4): Conv2d(16, 1, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
     )
     )
+    For Dataset II:
+    Autoencoder_Denoise(
+    (encoder): Sequential(
+     (0): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+     (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+     (2): Conv2d(16, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+     (3): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (decoder): Sequential(
+     (0): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+     (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+     (2): ConvTranspose2d(64, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+     (3): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+     (4): Conv2d(16, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    )
 Loss function: MSE Loss
 Optimization algorithm: Adam, with lr=1e-3
 ### (3) Model 3 - AEs using convolutional neural networks for image anomaly detection
@@ -39,12 +56,12 @@ Dataset I: after training 10 epochs, training loss = 0.011862, valid loss = 0.00
 Dataset II: after training 20 epochs, training loss = 0.046850, valid loss = 0.005557, testing loss = 0.046179 <br />
 ### (2) Model 2
 Dataset I: after training 10 epochs, training loss = 0.009652, valid loss = 0.002408, testing loss = 0.009630 <br />
-Dataset II: after training 20 epochs, training loss = 0.xx, valid loss = 0.xx, testing loss = 0.xx <br />
+Dataset II: after training 20 epochs, training loss = 0.006298, valid loss = 0.000735, testing loss = 0.xx <br />
 ### (3) Model 3
 TODO
 
 ## 4. Discussion
 (1) Model 1 - AEs using feedfoward neural networks for image reconstruction. It performs okay on the simple Dataset I for reconstruction while pretty bad on the more complicated DatasetII, where only vague images can be reconstructed. This is probably because unsqueeze the 3-channel color image into a 1D vector destroys the input data structure, thus cannot be reconstructed using a feedfoward neural networks. And that's why we are moving to Model 2, CNN. <br />
-(2) Model 2 - AEs using convolutional neural networks for image denoising. However, the denoising performance on the test data of Dataset I is not very ideal. The denoised Fashion image is very vague. In the final submission, I will probably try more complicated CNN structures, and searching for the best parameters. the denoising performance on the test data of Dataset II<br />
-(3) Model performance (loss) on validation set is always way better than the training and testing, while that of training and testing are always very close to each other.
-(4) Another task for before the final submission is the anamoly detection using AEs, on based the loss function of model trained on Dataset II, to do a "classification" task on distinguishing Dataset II and Dataset III.
+(2) Model 2 - AEs using convolutional neural networks for image denoising. However, the denoising performance on the test data of Dataset I is not very ideal. The denoised Fashion image is very vague. In the final submission, I will probably try more complicated CNN structures, and searching for the best parameters. The denoising performance on the test data of Dataset II is TODO <br />
+(3) Model performance (loss) on validation set is always way better than the training and testing, while that of training and testing are always very close to each other. <br />
+(4) Another task for before the final submission is the anamoly detection using AEs, on based the loss function of model trained on Dataset II, to do a "classification" task on distinguishing Dataset II and Dataset III. <br />
