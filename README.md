@@ -1,7 +1,7 @@
 # SP23-CSE-60868-NeuralNetworks-FinalProject
 Paintings Denoising and Anomaly Detection Using Auto-Encoders (AEs)
 ## 1. Dataset
-NOTE: Please see pdf files of part1 and part2 for further details of datasets and data curation
+NOTE: Please see pdf files of part1 and part2 for further details of datasets and data curation <br />
 TODO --- File too large to upload!! <br />
 I: The Fashion MNIST dataset <br />
 II: The Edvard Munch Paintings dataset <br />
