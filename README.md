@@ -1,4 +1,4 @@
-# SP23-CSE-60868-NeuralNetworks-FinalProject-InProgress
+# SP23-CSE-60868-NeuralNetworks-FinalProject
 Paintings Denoising and Anomaly Detection Using Auto-Encoders (AEs)
 ## 1. Dataset
 TODO --- File too large to upload!! <br />
