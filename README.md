@@ -50,6 +50,9 @@ Optimization algorithm: Adam, with lr=1e-3
 Loss function: MSE Loss
 Optimization algorithm: Adam, with lr=1e-3
 ### (3) Model 3 - AEs using convolutional neural networks for image anomaly detection
+
+Only tested on Dataset II and III
+
 TODO
 ## 3. Model Performance
 ### (1) Model 1
