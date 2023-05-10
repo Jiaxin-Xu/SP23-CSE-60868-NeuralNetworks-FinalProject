@@ -53,21 +53,21 @@ Optimization algorithm: Adam, with lr=1e-3
 
 Only tested on Dataset II and III
 
-AnomalyDetector_AE(
-  (encoder): Sequential(
-    (0): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (2): Conv2d(16, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    (3): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-  )
-  (decoder): Sequential(
-    (0): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (2): ConvTranspose2d(64, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-    (3): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (4): Conv2d(16, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
-  )
-)
+    AnomalyDetector_AE(
+    (encoder): Sequential(
+        (0): Conv2d(3, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): Conv2d(16, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (decoder): Sequential(
+        (0): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ConvTranspose2d(64, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (4): Conv2d(16, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    )
 
 ## 3. Model Performance
 NOTE: Longer epochs can potentially achieve better performance, but here I only try 10/20 epochs on my own PC to save computational time.
@@ -81,9 +81,9 @@ Dataset II: after training 20 epochs, training loss = 0.006298, valid loss = 0.0
 Dataset II&II: after training 10 epochs,traing loss = 0.000294, valid loss = 0.000159, testing loss on Dataset II = 0.000262, testing loss on Dataset III = 0.000375 <br />
 Anomaly detection performance on the balanced combined test data:
 
-Accuracy = 0.6142857142857143
-Precision = 0.5743494423791822
-Recall = 0.8828571428571429
+Accuracy = 0.614 <br />
+Precision = 0.574 <br />
+Recall = 0.883 <br />
 
 ## 4. Discussion
 (1) Model 1 - AEs using feedfoward neural networks for image reconstruction. It performs okay on the simple Dataset I for reconstruction while pretty bad on the more complicated DatasetII, where only vague images can be reconstructed. This is probably because unsqueeze the 3-channel color image into a 1D vector destroys the input data structure, thus cannot be reconstructed using a feedfoward neural networks. And that's why we are moving to Model 2, CNN. <br />
